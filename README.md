@@ -1,5 +1,3 @@
-# VoiceTimer
-Простий голосовий таймер з командами СТАРТ і СТОП для Android.
 
 name: Build Android APK
 
@@ -18,26 +16,62 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Extract Android project
+        run: |
+          unzip -q VoiceTimerAndroid_Project.zip -d extracted
+
+          PROJECT_DIR="$(dirname "$(find extracted -name settings.gradle.kts -print -quit)")"
+
+          if [ -z "$PROJECT_DIR" ] || [ ! -f "$PROJECT_DIR/app/build.gradle.kts" ]; then
+            echo "Android project files not found"
+            exit 1
+          fi
+
+          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+
+      - name: Fix Java and Kotlin targets
+        run: |
+          cd "$PROJECT_DIR"
+
+          cat >> app/build.gradle.kts <<'EOF'
+
+          android {
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_17
+                  targetCompatibility = JavaVersion.VERSION_17
+              }
+          }
+
+          tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+              kotlinOptions {
+                  jvmTarget = "17"
+              }
+          }
+          EOF
 
       - name: Build APK
         run: |
-          if [ -f ./gradlew ]; then
-            chmod +x ./gradlew
-            ./gradlew assembleDebug
-          else
-            echo "Gradle project not found"
-            exit 1
-          fi
+          cd "$PROJECT_DIR"
+          gradle assembleDebug
+
+      - name: Prepare APK
+        run: |
+          mkdir -p apk-output
+          find "$PROJECT_DIR/app/build/outputs/apk/debug" \
+            -name "*.apk" -exec cp {} apk-output/ \;
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: VoiceTimer-APK
-          path: app/build/outputs/apk/debug/*.apk
+          path: apk-output/*.apk
