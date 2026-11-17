@@ -1,21 +1,21 @@
-
 name: Build Android APK
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download project
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
@@ -25,16 +25,52 @@ jobs:
         with:
           gradle-version: '8.9'
 
-      - name: Unpack project
+      - name: Extract Android project
         run: |
-          unzip -q VoiceTimerAndroid_Project.zip -d unpacked
+          unzip -q VoiceTimerAndroid_Project.zip -d extracted
+
+          PROJECT_DIR="$(dirname "$(find extracted -name settings.gradle.kts -print -quit)")"
+
+          if [ -z "$PROJECT_DIR" ] || [ ! -f "$PROJECT_DIR/app/build.gradle.kts" ]; then
+            echo "Android project files not found"
+            exit 1
+          fi
+
+          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+
+      - name: Fix Java and Kotlin targets
+        run: |
+          cd "$PROJECT_DIR"
+
+          cat >> app/build.gradle.kts <<'EOF'
+
+          android {
+              compileOptions {
+                  sourceCompatibility = JavaVersion.VERSION_1_8
+                  targetCompatibility = JavaVersion.VERSION_1_8
+              }
+          }
+
+          tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+              kotlinOptions {
+                  jvmTarget = "1.8"
+              }
+          }
+          EOF
 
       - name: Build APK
         run: |
-          gradle -p unpacked/VoiceTimerAndroid assembleDebug
+          cd "$PROJECT_DIR"
+          gradle assembleDebug
 
-      - name: Save APK
+      - name: Prepare APK
+        run: |
+          mkdir -p apk-output
+          find "$PROJECT_DIR/app/build/outputs/apk/debug" \
+            -name "*.apk" -exec cp {} apk-output/ \;
+
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: VoiceTimer-APK
-          path: unpacked/VoiceTimerAndroid/app/build/outputs/apk/debug/app-debug.apk
+          path: apk-output/*.apk
