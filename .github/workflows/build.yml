@@ -58,7 +58,16 @@ jobs:
           }
           EOF
 
-      - name: Build APK
+      - name: Build APK      - name: Inspect app source
+        run: |
+          echo "=== ANDROID MANIFEST ==="
+          cat "$PROJECT_DIR/app/src/main/AndroidManifest.xml"
+
+          echo "=== MAIN ACTIVITY ==="
+          find "$PROJECT_DIR/app/src/main" -name MainActivity.kt -exec cat {} \;
+
+          echo "=== APP DEPENDENCIES ==="
+          cat "$PROJECT_DIR/app/build.gradle.kts"
         run: |
           cd "$PROJECT_DIR"
           gradle assembleDebug
