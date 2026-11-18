@@ -1,10 +1,12 @@
-# 🎙️ VoiceTimer
+\<p align="center">   \<img src="icon.png" width="180" alt="VoiceTimer Icon"> \</p>
 
-### Голосовой таймер для Android
+\<h1 align="center">🎙️ VoiceTimer\</h1>
 
-**VoiceTimer** — Android-приложение, позволяющее управлять таймером с помощью голоса.
+\<h3 align="center">Голосовой таймер для Android\</h3>
 
-Больше не нужно нажимать кнопки. Просто произнеси команду!
+\<p align="center">   Управляй временем с помощью голоса. Без лишних нажатий и без интернета. \</p>
+
+\<p align="center">   \<a href="[https://github.com/1mpresario/VoiceTimer/releases/latest](https://github.com/1mpresario/VoiceTimer/releases/latest)">     \<img src="[https://img.shields.io/badge/Скачать-VoiceTimer-brightgreen?style=for-the-badge&logo=android](https://img.shields.io/badge/Скачать-VoiceTimer-brightgreen?style=for-the-badge\&logo=android)" alt="Download VoiceTimer">   \</a> \</p>
 
 ---
 
@@ -24,19 +26,21 @@
 - Vosk Speech Recognition
 - Offline Speech Recognition
 
-## 📲 Скачать VoiceTimer
+## 📲 Скачать приложение
 
-**Последняя версия: v1.0.0**
+**Текущая версия: v1.0.0**
 
-[⬇️ СКАЧАТЬ VOICETIMER (APK)](https://github.com/1mpresario/VoiceTimer/releases/latest)
-
-Размер файла: 95,3 МБ.
+\<p align="center">
+&#x20; \<a href="[https://github.com/1mpresario/VoiceTimer/releases/latest](https://github.com/1mpresario/VoiceTimer/releases/latest)">
+&#x20;   \<img src="[https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge&logo=android&logoColor=white](https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge\&logo=android\&logoColor=white)" alt="Download APK">
+&#x20; \</a>
+\</p>
 
 ## 📥 Установка
 
 1. Скачайте APK-файл.
-2. Откройте скачанный файл на Android.
-3. Подтвердите установку, если Android запросит разрешение.
+2. Откройте его на Android.
+3. Подтвердите установку.
 4. Запустите VoiceTimer.
 5. Разрешите доступ к микрофону.
 
@@ -46,10 +50,8 @@
 
 ## 👨‍💻 Автор
 
-**@1mpresario**
-
-GitHub: https://github.com/1mpresario
+[**@1mpresario**](https://github.com/1mpresario)
 
 ---
 
-*VoiceTimer — управление временем голосом.*
+\<p align="center">   \<b>VoiceTimer\</b>\<br>   Управление временем голосом. \</p>
