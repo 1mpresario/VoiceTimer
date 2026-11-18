@@ -1,12 +1,22 @@
-\<p align="center">   \<img src="icon.png" width="180" alt="VoiceTimer Icon"> \</p>
+<p align="center">
+  <img src="./icon.png" width="300" alt="VoiceTimer">
+</p>
 
-\<h1 align="center">🎙️ VoiceTimer\</h1>
+<h1 align="center">🎙️ VoiceTimer</h1>
 
-\<h3 align="center">Голосовой таймер для Android\</h3>
+<h3 align="center">Голосовой таймер для Android</h3>
 
-\<p align="center">   Управляй временем с помощью голоса. Без лишних нажатий и без интернета. \</p>
+<p align="center">
+  Управляй временем с помощью голоса.
+  <br>
+  Без лишних нажатий и без интернета.
+</p>
 
-\<p align="center">   \<a href="[https://github.com/1mpresario/VoiceTimer/releases/latest](https://github.com/1mpresario/VoiceTimer/releases/latest)">     \<img src="[https://img.shields.io/badge/Скачать-VoiceTimer-brightgreen?style=for-the-badge&logo=android](https://img.shields.io/badge/Скачать-VoiceTimer-brightgreen?style=for-the-badge\&logo=android)" alt="Download VoiceTimer">   \</a> \</p>
+<p align="center">
+  <a href="https://github.com/1mpresario/VoiceTimer/releases/latest">
+    <img src="https://img.shields.io/badge/СКАЧАТЬ-VOICETIMER-brightgreen?style=for-the-badge&logo=android" alt="Скачать VoiceTimer">
+  </a>
+</p>
 
 ---
 
@@ -30,11 +40,11 @@
 
 **Текущая версия: v1.0.0**
 
-\<p align="center">
-&#x20; \<a href="[https://github.com/1mpresario/VoiceTimer/releases/latest](https://github.com/1mpresario/VoiceTimer/releases/latest)">
-&#x20;   \<img src="[https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge&logo=android&logoColor=white](https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge\&logo=android\&logoColor=white)" alt="Download APK">
-&#x20; \</a>
-\</p>
+<p align="center">
+  <a href="https://github.com/1mpresario/VoiceTimer/releases/latest">
+    <img src="https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
+  </a>
+</p>
 
 ## 📥 Установка
 
@@ -50,8 +60,12 @@
 
 ## 👨‍💻 Автор
 
-[**@1mpresario**](https://github.com/1mpresario)
+**[@1mpresario](https://github.com/1mpresario)**
 
 ---
 
-\<p align="center">   \<b>VoiceTimer\</b>\<br>   Управление временем голосом. \</p>
+<p align="center">
+  <b>VoiceTimer</b>
+  <br>
+  Управление временем голосом.
+</p>
