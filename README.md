@@ -14,8 +14,27 @@
 
 <p align="center">
   <a href="https://github.com/1mpresario/VoiceTimer/releases/latest">
-    <img src="https://img.shields.io/badge/СКАЧАТЬ-VOICETIMER-brightgreen?style=for-the-badge&logo=android" alt="Скачать VoiceTimer">
+    <img src="https://img.shields.io/badge/СКАЧАТЬ-VOICETIMER-brightgreen?style=for-the-badge&logo=android">
   </a>
+</p>
+
+---
+
+## 📱 Интерфейс приложения
+
+### 🎬 Анимация загрузки
+<p align="center">
+  <img src="./splash-screen.png" width="250">
+</p>
+
+### 🏠 Главный экран
+<p align="center">
+  <img src="./main-screen.png" width="250">
+</p>
+
+### ⏱️ Работа таймера
+<p align="center">
+  <img src="./timer-running.png" width="250">
 </p>
 
 ---
@@ -25,7 +44,7 @@
 - 🎤 Голосовое управление.
 - ▶️ Команда «СТАРТ» — запуск таймера.
 - ⏹️ Команда «СТОП» — остановка таймера.
-- 📡 Работа офлайн — без подключения к интернету.
+- 📡 Работа офлайн.
 - ⚡ Быстрая реакция на голосовые команды.
 - 🌑 Тёмный дизайн с тёмно-зелёными элементами.
 
@@ -42,7 +61,7 @@
 
 <p align="center">
   <a href="https://github.com/1mpresario/VoiceTimer/releases/latest">
-    <img src="https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge&logo=android&logoColor=white" alt="Download APK">
+    <img src="https://img.shields.io/badge/DOWNLOAD-APK-00C853?style=for-the-badge&logo=android&logoColor=white">
   </a>
 </p>
 
@@ -53,10 +72,6 @@
 3. Подтвердите установку.
 4. Запустите VoiceTimer.
 5. Разрешите доступ к микрофону.
-
-## 🔧 Разработка
-
-Проект находится в активной разработке.
 
 ## 👨‍💻 Автор
 
