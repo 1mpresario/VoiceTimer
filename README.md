@@ -1,77 +1,55 @@
+# 🎙️ VoiceTimer
 
-name: Build Android APK
+### Голосовой таймер для Android
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+**VoiceTimer** — Android-приложение, позволяющее управлять таймером с помощью голоса.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+Больше не нужно нажимать кнопки. Просто произнеси команду!
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+---
 
-      - name: Set up Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: temurin
-          java-version: '17'
+## ✨ Возможности
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.9'
+- 🎤 Голосовое управление.
+- ▶️ Команда «СТАРТ» — запуск таймера.
+- ⏹️ Команда «СТОП» — остановка таймера.
+- 📡 Работа офлайн — без подключения к интернету.
+- ⚡ Быстрая реакция на голосовые команды.
+- 🌑 Тёмный дизайн с тёмно-зелёными элементами.
 
-      - name: Extract Android project
-        run: |
-          unzip -q VoiceTimerAndroid_Project.zip -d extracted
+## 🧠 Технологии
 
-          PROJECT_DIR="$(dirname "$(find extracted -name settings.gradle.kts -print -quit)")"
+- Android
+- Kotlin
+- Vosk Speech Recognition
+- Offline Speech Recognition
 
-          if [ -z "$PROJECT_DIR" ] || [ ! -f "$PROJECT_DIR/app/build.gradle.kts" ]; then
-            echo "Android project files not found"
-            exit 1
-          fi
+## 📲 Скачать VoiceTimer
 
-          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+**Последняя версия: v1.0.0**
 
-      - name: Fix Java and Kotlin targets
-        run: |
-          cd "$PROJECT_DIR"
+[⬇️ СКАЧАТЬ VOICETIMER (APK)](https://github.com/1mpresario/VoiceTimer/releases/latest)
 
-          cat >> app/build.gradle.kts <<'EOF'
+Размер файла: 95,3 МБ.
 
-          android {
-              compileOptions {
-                  sourceCompatibility = JavaVersion.VERSION_17
-                  targetCompatibility = JavaVersion.VERSION_17
-              }
-          }
+## 📥 Установка
 
-          tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-              kotlinOptions {
-                  jvmTarget = "17"
-              }
-          }
-          EOF
+1. Скачайте APK-файл.
+2. Откройте скачанный файл на Android.
+3. Подтвердите установку, если Android запросит разрешение.
+4. Запустите VoiceTimer.
+5. Разрешите доступ к микрофону.
 
-      - name: Build APK
-        run: |
-          cd "$PROJECT_DIR"
-          gradle assembleDebug
+## 🔧 Разработка
 
-      - name: Prepare APK
-        run: |
-          mkdir -p apk-output
-          find "$PROJECT_DIR/app/build/outputs/apk/debug" \
-            -name "*.apk" -exec cp {} apk-output/ \;
+Проект находится в активной разработке.
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: VoiceTimer-APK
-          path: apk-output/*.apk
+## 👨‍💻 Автор
+
+**@1mpresario**
+
+GitHub: https://github.com/1mpresario
+
+---
+
+*VoiceTimer — управление временем голосом.*
